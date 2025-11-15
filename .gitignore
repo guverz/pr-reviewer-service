@@ -5,7 +5,6 @@
 *.so
 *.dylib
 bin/
-server
 load
 
 # Test binary, built with go test -c

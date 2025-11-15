@@ -50,7 +50,7 @@ docker-compose up
 
 Создаёт новую команду и добавляет/обновляет пользователей в этой команде. Если команда уже существует, вернёт ошибку.
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X POST http://localhost:8080/team/add \
   -H "Content-Type: application/json" \
@@ -76,7 +76,7 @@ curl -X POST http://localhost:8080/team/add \
   }'
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X POST http://localhost:8080/team/add `
   -H "Content-Type: application/json" `
@@ -123,12 +123,12 @@ curl.exe -X POST http://localhost:8080/team/add `
 
 Возвращает информацию о команде и всех её участниках (включая неактивных).
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X GET http://localhost:8080/team/get?team_name=backend
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe http://localhost:8080/team/get?team_name=backend 
 ```
@@ -173,7 +173,7 @@ curl.exe http://localhost:8080/team/get?team_name=backend
 
 Изменяет статус активности пользователя. Неактивные пользователи (`is_active: false`) не назначаются на новые ревью, но их текущие назначения остаются видимыми.
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X POST http://localhost:8080/users/setIsActive \
   -H "Content-Type: application/json" \
@@ -183,7 +183,7 @@ curl -X POST http://localhost:8080/users/setIsActive \
   }'
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X POST http://localhost:8080/users/setIsActive `
   -H "Content-Type: application/json" `
@@ -221,7 +221,7 @@ curl.exe -X POST http://localhost:8080/users/setIsActive `
 curl -X GET http://localhost:8080/users/getReview?user_id=u2
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X GET http://localhost:8080/users/getReview?user_id=u2
 ```
@@ -266,7 +266,7 @@ curl -X POST http://localhost:8080/pullRequest/create \
   }'
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X POST http://localhost:8080/pullRequest/create `
   -H "Content-Type: application/json" `
@@ -304,7 +304,7 @@ curl.exe -X POST http://localhost:8080/pullRequest/create `
 
 Помечает Pull Request как объединённый (MERGED). Операция идемпотентна — повторный вызов не приводит к ошибке и возвращает актуальное состояние PR. После merge изменение списка ревьюверов запрещено.
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X POST http://localhost:8080/pullRequest/merge \
   -H "Content-Type: application/json" \
@@ -313,7 +313,7 @@ curl -X POST http://localhost:8080/pullRequest/merge \
   }'
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X POST http://localhost:8080/pullRequest/merge `
   -H "Content-Type: application/json" `
@@ -341,7 +341,7 @@ curl.exe -X POST http://localhost:8080/pullRequest/merge `
 
 Заменяет одного ревьювера на случайного активного участника из команды заменяемого ревьювера. Нельзя переназначать ревьюверов в уже объединённых (MERGED) PR.
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X POST http://localhost:8080/pullRequest/reassign \
   -H "Content-Type: application/json" \
@@ -351,7 +351,7 @@ curl -X POST http://localhost:8080/pullRequest/reassign \
   }'
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X POST http://localhost:8080/pullRequest/reassign `
   -H "Content-Type: application/json" `
@@ -415,12 +415,12 @@ curl.exe -X POST http://localhost:8080/pullRequest/reassign `
 
 Простой эндпоинт для проверки доступности сервиса.
 
-**Запрос Linux:**
+**Запрос bash | Linux:**
 ```bash
 curl -X GET http://localhost:8080/healthz
 ```
 
-**Запрос Windows:**
+**Запрос PowerShell | Windows:**
 ```PowerShell
 curl.exe -X GET http://localhost:8080/healthz
 ```
